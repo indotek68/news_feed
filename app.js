@@ -2,9 +2,11 @@ var express = require('express'),
 bodyParser = require('body-parser'),
 app = express();
 
+app.set('view engine', 'ejs');
+
 //homepage
 app.get('/', function(req, res){
-  res.send('Hello World'); 
+  res.render('site/index'); 
 });
 
 //displays summary
