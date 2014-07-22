@@ -2,7 +2,10 @@ var express = require('express'),
 bodyParser = require('body-parser'),
 app = express();
 
+app.use(bodyParser.urlencoded());
 app.set('view engine', 'ejs');
+
+var articles = [];
 
 //homepage
 app.get('/', function(req, res){
@@ -11,18 +14,26 @@ app.get('/', function(req, res){
 
 //displays summary
 app.get('/articles', function(req, res){
-  res.send('Summary'); 
+  res.render('articles/articles'); 
 });
 
 //gets a form to save to article
 app.get('/articles/new', function(req, res){
-  res.send('save a new article'); 
+  res.render('articles/new'); 
 });
 
 //find the article in an array
 app.get('/articles/:id', function(req, res){
   res.send('find article in array'); 
 });
+
+app.post('/articles', function(req, res){
+	console.log(req.body.articles)
+	articles.push(req.body.articles);
+	res.redirect('/articles/new')
+})
+
+
 
 //static page about the daily planet
 app.get('/about', function(req, res){
