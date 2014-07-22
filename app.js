@@ -5,7 +5,7 @@ app = express();
 app.use(bodyParser.urlencoded());
 app.set('view engine', 'ejs');
 
-var articles = [];
+var articlesArray = [];
 
 //homepage
 app.get('/', function(req, res){
@@ -14,7 +14,7 @@ app.get('/', function(req, res){
 
 //displays summary
 app.get('/articles', function(req, res){
-  res.render('articles/articles'); 
+  res.render('articles/articles', {articles: articlesArray}); 
 });
 
 //gets a form to save to article
@@ -29,7 +29,8 @@ app.get('/articles/:id', function(req, res){
 
 app.post('/articles', function(req, res){
 	console.log(req.body.articles)
-	articles.push(req.body.articles);
+	articlesArray.push(req.body.articles);
+	console.log(articlesArray)
 	res.redirect('/articles/new')
 })
 

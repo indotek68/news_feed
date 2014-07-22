@@ -5,6 +5,11 @@
 	</title>
 </head>
 <body>
-	<%= "display summary article" %>
+	<h3>Summary of articles</h3>
+	<% articles.forEach(function(taco){ %>
+	<li><%= taco.title %></li>
+	<!-- <li><%= articles.date %></li>
+	<li><%= articles.summary %></li> -->
+	<% }) %>
 </body>
 </html>
