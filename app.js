@@ -26,12 +26,12 @@ app.get('/articles/:id', function(req, res){
 
 //static page about the daily planet
 app.get('/about', function(req, res){
-  res.send('about page'); 
+  res.render('site/about'); 
 });
 
 //contact
 app.get('/contact', function(req, res){
-  res.send('contact page'); 
+  res.render('site/contact'); 
 });
 
 
