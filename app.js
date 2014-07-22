@@ -24,7 +24,10 @@ app.get('/articles/new', function(req, res){
 
 //find the article in an array
 app.get('/articles/:id', function(req, res){
-  res.send('find article in array'); 
+  	var index = articlesArray[req.params.id]
+  	//console.log(articlesArray)
+  	console.log(index)
+	res.render('articles/show', {articles: index}); 
 });
 
 app.post('/articles', function(req, res){

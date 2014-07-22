@@ -6,10 +6,12 @@
 </head>
 <body>
 	<h3>Summary of articles</h3>
-	<% articles.forEach(function(taco){ %>
-	<li><%= taco.title %></li>
-	<!-- <li><%= articles.date %></li>
-	<li><%= articles.summary %></li> -->
+	<% articles.forEach(function(taco, index){ %>
+	<li><%= taco.title %><a href = '/articles/<%= index %>'> Summary</a></li>
 	<% }) %>
+	<ul>
+		<li><a href = "/">Home</a></li>
+		<li><a href = "/articles/new">Article Form</a></li>
+	</ul>
 </body>
 </html>
